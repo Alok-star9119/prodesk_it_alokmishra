@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodesk IT | Elevating Digital Experiences</title>
+    <meta name="description" content="Deploying pixel-perfect, highly responsive design modules for next-gen digital marketing and performance web systems.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    },
+                    boxShadow: {
+                        'glass-light': '0 8px 32px 0 rgba(31, 38, 135, 0.04)',
+                        'glass-dark': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .theme-transition, .theme-transition *, .theme-transition *::before, .theme-transition *::after {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, fill 0.3s ease, stroke 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        @keyframes blob-float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
+        }
+        .animate-blob {
+            animation: blob-float 7s ease-in-out infinite;
+        }
+        .animate-blob-delayed {
+            animation: blob-float 7s ease-in-out infinite;
+            animation-delay: 3.5s;
+        }
+    </style>
+</head>
+<body class="theme-transition bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased selection:bg-brand-500 selection:text-white">
+
+    <a href="#hero-section" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99] focus:px-4 focus:py-2 focus:bg-brand-600 focus:text-white focus:rounded-lg focus:shadow-lg">
+        Skip to main content
+    </a>
+
+    <!-- Sticky Glassmorphism Header (Phase 2 & 3) -->
+    <header class="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 backdrop-blur-md bg-white/70 dark:bg-slate-950/70 border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded-md" aria-label="Prodesk IT Home">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center shadow-md shadow-brand-500/20">
+                            <span class="text-white font-extrabold text-xl tracking-tight">P</span>
+                        </div>
+                        <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-slate-900 to-indigo-950 dark:from-white dark:to-indigo-200 bg-clip-text text-transparent">
+                            Prodesk <span class="text-brand-600 dark:text-brand-500">IT</span>
+                        </span>
+                    </a>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
+                    <a href="#hero-section" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400 transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-md px-1">Home</a>
+                    <a href="#about-section" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400 transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-md px-1">About Us</a>
+                    <a href="#services-section" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400 transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-md px-1">Services</a>
+                    <a href="#contact-section" class="text-sm font-medium text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400 transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-md px-1">Contact</a>
+                </nav>
+
+                <!-- Actions (Theme Toggle & CTA) -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button id="theme-toggle" type="button" class="p-2.5 text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-500" aria-label="Toggle visual theme">
+                        <!-- Sun Icon (Show in dark mode) -->
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707m12.728 12.728A9 9 0 115.636 5.636l12.728 12.728z"></path>
+                        </svg>
+                        <!-- Moon Icon (Show in light mode) -->
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <!-- Header Action CTA -->
+                    <button onclick="openLeadModal()" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 active:scale-95 rounded-xl shadow-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        Work with Us
+                    </button>
+                </div>
+
+                <div class="flex items-center space-x-2 md:hidden">
+                    <!-- Mobile Theme Toggle -->
+                    <button id="theme-toggle-mobile" type="button" class="p-2 text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500" aria-label="Toggle visual theme">
+                        <!-- Sun Icon for Mobile -->
+                        <svg id="theme-toggle-light-icon-mobile" class="hidden w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707m12.728 12.728A9 9 0 115.636 5.636l12.728 12.728z"></path>
+                        </svg>
+                        <!-- Moon Icon for Mobile -->
+                        <svg id="theme-toggle-dark-icon-mobile" class="hidden w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <!-- Mobile Hamburger Toggle -->
+                    <button id="mobile-menu-btn" type="button" class="p-2 text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md absolute top-20 left-0 w-full shadow-lg" aria-hidden="true">
+            <nav class="flex flex-col px-4 pt-2 pb-6 space-y-3" aria-label="Mobile Navigation">
+                <a href="#hero-section" class="mobile-nav-link text-base font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 py-2.5 border-b border-slate-100 dark:border-slate-900 transition-colors">Home</a>
+                <a href="#about-section" class="mobile-nav-link text-base font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 py-2.5 border-b border-slate-100 dark:border-slate-900 transition-colors">About Us</a>
+                <a href="#services-section" class="mobile-nav-link text-base font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 py-2.5 border-b border-slate-100 dark:border-slate-900 transition-colors">Services</a>
+                <a href="#contact-section" class="mobile-nav-link text-base font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 py-2.5 border-b border-slate-100 dark:border-slate-900 transition-colors">Contact</a>
+                <button onclick="openLeadModal()" class="w-full mt-4 py-3 text-center text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-sm transition-colors duration-300">
+                    Work with Us
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        
+        <section id="hero-section" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20 lg:py-32">
+            <!-- Background Ambient Accents -->
+            <div class="absolute inset-0 pointer-events-none z-0">
+                <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-indigo-500/10 dark:indigo-500/5 blur-3xl animate-blob"></div>
+                <div class="absolute top-1/2 -right-40 w-96 h-96 rounded-full bg-violet-500/10 dark:violet-500/5 blur-3xl animate-blob-delayed"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                <!-- Two-Column Hero Architecture -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Content Column (Left) -->
+                    <div class="lg:col-span-7 flex flex-col items-start space-y-6 text-left">
+                        <!-- Pill Badge -->
+                        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-50/80 dark:bg-indigo-950/40 border border-brand-100 dark:border-indigo-900/50">
+                            <span class="flex h-2 w-2 relative">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                            </span>
+                            <span class="text-xs font-semibold text-brand-700 dark:text-brand-300 tracking-wider uppercase">Prodesk IT Marketing Labs</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1] max-w-2xl">
+                            We Build <span class="bg-gradient-to-r from-brand-600 via-indigo-500 to-violet-500 bg-clip-text text-transparent">Digital Experiences</span> That Deliver Growth
+                        </h1>
+
+                        <!-- Sub-headline -->
+                        <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-xl font-normal leading-relaxed">
+                            Empower your digital marketing, search visibility, and application engineering under one dynamic interface. Engineered for speed, designed for conversions.
+                        </p>
+
+                        <!-- CTA Flex/Grid -->
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+                            <button onclick="openLeadModal()" class="px-8 py-4 text-base font-bold text-white bg-brand-600 hover:bg-brand-700 active:scale-95 rounded-xl shadow-lg shadow-brand-600/20 hover:shadow-xl hover:shadow-brand-600/30 transition-all duration-300 text-center" aria-label="Get started with Prodesk IT">
+                                Get Started
+                            </button>
+                            <a href="#services-section" class="px-8 py-4 text-base font-bold text-slate-700 dark:text-slate-200 bg-white hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-850 active:scale-95 border border-slate-200 dark:border-slate-800 rounded-xl transition-all duration-300 text-center">
+                                Explore Services
+                            </a>
+                        </div>
+
+                        <!-- Trust Metrics bar -->
+                        <div class="pt-8 border-t border-slate-200 dark:border-slate-800 w-full flex items-center gap-8 text-slate-500 dark:text-slate-400">
+                            <div>
+                                <span class="block text-2xl font-bold text-slate-900 dark:text-white">99.8%</span>
+                                <span class="text-xs uppercase tracking-wider font-semibold">Uptime SLA</span>
+                            </div>
+                            <div class="w-px h-8 bg-slate-200 dark:bg-slate-800"></div>
+                            <div>
+                                <span class="block text-2xl font-bold text-slate-900 dark:text-white">15x</span>
+                                <span class="text-xs uppercase tracking-wider font-semibold">ROI Average</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 relative flex justify-center items-center">
+                        <div class="relative w-full max-w-md aspect-square flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-brand-500/20 to-indigo-500/10 rounded-full blur-2xl"></div>
+                            
+                            <!-- Custom Interactive Illustration Dashboard Mockup -->
+                            <div class="relative w-full border border-slate-200/50 dark:border-slate-800/80 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl p-6 rounded-3xl shadow-2xl transition-all duration-500 hover:rotate-2">
+                                <div class="flex items-center justify-between mb-6">
+                                    <div class="flex space-x-1.5">
+                                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                        <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                                    </div>
+                                    <span class="text-[10px] font-mono text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">prodesk_analysis.js</span>
+                                </div>
+                                <div class="space-y-4">
+                                    <!-- Mini Chart Representing Growth -->
+                                    <div class="h-32 bg-slate-100/60 dark:bg-slate-950/60 rounded-2xl p-4 relative overflow-hidden flex items-end">
+                                        <div class="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-brand-500/10 to-transparent"></div>
+                                        <div class="w-full flex items-end gap-1.5 h-full pt-4">
+                                            <div class="flex-1 bg-brand-500/20 rounded-t h-1/4"></div>
+                                            <div class="flex-1 bg-brand-500/30 rounded-t h-2/5"></div>
+                                            <div class="flex-1 bg-brand-500/45 rounded-t h-1/2"></div>
+                                            <div class="flex-1 bg-brand-500/60 rounded-t h-3/5"></div>
+                                            <div class="flex-1 bg-brand-500/75 rounded-t h-4/5"></div>
+                                            <div class="flex-1 bg-brand-600 rounded-t h-[95%]"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Stat Badges Inside Mockup -->
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div class="bg-slate-100/40 dark:bg-slate-950/40 border border-slate-200/50 dark:border-slate-850 p-3 rounded-xl">
+                                            <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Leads Acquired</span>
+                                            <span class="text-lg font-bold text-slate-900 dark:text-white">+241%</span>
+                                        </div>
+                                        <div class="bg-slate-100/40 dark:bg-slate-950/40 border border-slate-200/50 dark:border-slate-850 p-3 rounded-xl">
+                                            <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Web Performance</span>
+                                            <span class="text-lg font-bold text-emerald-500">100/100</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="about-section" class="py-24 border-t border-slate-200/50 dark:border-slate-800/50 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                        Who We Are
+                    </h2>
+                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+                        Prodesk IT is a multi-disciplinary technical agency bridging pure digital artistry with top-tier, performance-driven web development.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Our Engineering Standard</h3>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Every marketing module, application, and digital strategy designed inside our laboratory follows strict responsive requirements. We hold ourselves to a level of aesthetic excellence where layouts are pixel-perfect and accessibility remains at the forefront.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center space-x-3 text-slate-700 dark:text-slate-200">
+                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>Lighthouse Audits targeting 100/100 Performance.</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-slate-700 dark:text-slate-200">
+                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>Fully dynamic responsive structural grids.</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-slate-700 dark:text-slate-200">
+                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>Sophisticated visual designs leveraging the latest CSS techniques.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Isometric Decorative Card Stack -->
+                    <div class="relative h-72 md:h-96 flex items-center justify-center">
+                        <div class="absolute w-64 h-48 bg-brand-500/10 dark:bg-brand-500/5 rounded-2xl blur-xl"></div>
+                        <div class="absolute w-56 h-40 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl transform -rotate-6 shadow-md transition-all duration-300 hover:rotate-0"></div>
+                        <div class="absolute w-56 h-40 bg-slate-200 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 rounded-2xl transform rotate-3 shadow-lg transition-all duration-300 hover:rotate-0 flex items-center justify-center">
+                            <span class="text-sm font-bold text-slate-400">Marketing Core</span>
+                        </div>
+                        <div class="absolute w-56 h-40 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl transform -translate-y-4 shadow-xl flex flex-col justify-between p-5">
+                            <span class="inline-flex w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-900/50 items-center justify-center">
+                                <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </span>
+                            <div class="space-y-1">
+                                <span class="block text-xs text-slate-400 font-medium">Performance Metrics</span>
+                                <span class="block text-lg font-bold text-slate-900 dark:text-white">Active Growth</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services-section" class="py-24 bg-white dark:bg-slate-950/40 relative border-t border-slate-200/50 dark:border-slate-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-20">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                        Our Strategic Services
+                    </h2>
+                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+                        Purpose-built technologies and marketing engines to accelerate acquisition and search authority.
+                    </p>
+                </div>
+
+                <!-- 3-Column Responsive Grid Module -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Service Card 1: SEO -->
+                    <article class="group relative bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-850 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-500/5 hover:border-brand-500/30">
+                        <div class="absolute inset-0 bg-gradient-to-b from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+                        <div class="relative z-10 flex flex-col h-full justify-between">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-indigo-950/40 flex items-center justify-center text-brand-600 dark:text-brand-400 mb-6">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">SEO Dominance</h3>
+                                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                                    Maximize organically high-intent discovery with hyper-optimized semantic mapping, indexing enhancements, and custom performance analysis.
+                                </p>
+                            </div>
+                            <button onclick="openLeadModal()" class="inline-flex items-center text-sm font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-700 transition-colors focus:outline-none" aria-label="Learn more about SEO Dominance">
+                                Get Consultation <span class="ml-1.5 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Service Card 2: Web Dev -->
+                    <article class="group relative bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-850 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-500/5 hover:border-brand-500/30">
+                        <div class="absolute inset-0 bg-gradient-to-b from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+                        <div class="relative z-10 flex flex-col h-full justify-between">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-indigo-950/40 flex items-center justify-center text-brand-600 dark:text-brand-400 mb-6">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Bespoke Web Development</h3>
+                                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                                    Highly functional systems optimized to achieve top performance. Beautiful layouts driven by advanced technical frontend foundations.
+                                </p>
+                            </div>
+                            <button onclick="openLeadModal()" class="inline-flex items-center text-sm font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-700 transition-colors focus:outline-none" aria-label="Learn more about Bespoke Web Development">
+                                Get Consultation <span class="ml-1.5 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Service Card 3: Digital Marketing -->
+                    <article class="group relative bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-850 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-500/5 hover:border-brand-500/30">
+                        <div class="absolute inset-0 bg-gradient-to-b from-brand-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+                        <div class="relative z-10 flex flex-col h-full justify-between">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-indigo-950/40 flex items-center justify-center text-brand-600 dark:text-brand-400 mb-6">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.003 9.003 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Digital Marketing</h3>
+                                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                                    Targeted digital media buying strategies engineered to produce actual conversion yield and verifiable client acquisition streams.
+                                </p>
+                            </div>
+                            <button onclick="openLeadModal()" class="inline-flex items-center text-sm font-semibold text-brand-600 dark:text-brand-400 group-hover:text-brand-700 transition-colors focus:outline-none" aria-label="Learn more about Digital Marketing">
+                                Get Consultation <span class="ml-1.5 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-section" class="py-24 relative border-t border-slate-200/50 dark:border-slate-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="text-sm font-bold text-brand-600 uppercase tracking-widest">Connect with our team</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                            Have an exciting project? Let's build it.
+                        </h2>
+                        <p class="text-lg text-slate-600 dark:text-slate-300">
+                            Our team responds to all design and engineering proposals within one business day. Fill out the contact request to secure a priority assessment.
+                        </p>
+                        <div class="space-y-4 pt-4">
+                            <div class="flex items-center space-x-3.5">
+                                <div class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-900 flex items-center justify-center text-brand-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">info@prodesk.in</span>
+                            </div>
+                            <div class="flex items-center space-x-3.5">
+                                <div class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-900 flex items-center justify-center text-brand-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-600 dark:text-slate-300">Bangalore, IN</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-850 p-8 sm:p-10 rounded-3xl shadow-xl">
+                            <form id="contact-form" onsubmit="handleFormSubmission(event)" class="space-y-6">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="first-name" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">First Name</label>
+                                        <input type="text" id="first-name" required class="w-full px-4 py-3 text-sm bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white dark:focus:bg-slate-900 text-slate-900 dark:text-white transition-all">
+                                    </div>
+                                    <div>
+                                        <label for="last-name" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Last Name</label>
+                                        <input type="text" id="last-name" required class="w-full px-4 py-3 text-sm bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white dark:focus:bg-slate-900 text-slate-900 dark:text-white transition-all">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Email Address</label>
+                                    <input type="email" id="email" required class="w-full px-4 py-3 text-sm bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white dark:focus:bg-slate-900 text-slate-900 dark:text-white transition-all">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Project Brief</label>
+                                    <textarea id="message" rows="4" required class="w-full px-4 py-3 text-sm bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white dark:focus:bg-slate-900 text-slate-900 dark:text-white transition-all resize-none"></textarea>
+                                </div>
+                                <button type="submit" class="w-full py-4 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 active:scale-95 rounded-xl shadow-lg shadow-brand-600/20 hover:shadow-xl transition-all duration-300">
+                                    Submit RFP Details
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-slate-200/50 dark:border-slate-800/50 bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center justify-between">
+                
+                <!-- Brand Information -->
+                <div class="md:col-span-4 flex flex-col items-start space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">P</span>
+                        </div>
+                        <span class="text-base font-bold text-slate-900 dark:text-white">Prodesk IT</span>
+                    </div>
+                    <p class="text-xs text-slate-400 dark:text-slate-500 leading-relaxed max-w-xs">
+                        Delivering best-in-class technical deployments and brand design. Designed as a proof-of-concept sprint output.
+                    </p>
+                </div>
+
+                <!-- Footer Quick Links -->
+                <div class="md:col-span-4 flex items-center justify-start md:justify-center space-x-6 text-sm font-medium">
+                    <a href="#hero-section" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Home</a>
+                    <a href="#about-section" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">About</a>
+                    <a href="#services-section" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Services</a>
+                    <a href="#contact-section" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
+                </div>
+
+                <div class="md:col-span-4 flex items-center justify-start md:justify-end space-x-4">
+                    <!-- Twitter/X -->
+                    <a href="#" class="p-2 bg-slate-50 dark:bg-slate-900 text-slate-400 hover:text-brand-600 hover:bg-brand-50 dark:hover:bg-indigo-950/40 rounded-xl transition-all duration-300" aria-label="Prodesk IT on Twitter">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                    <!-- LinkedIn Link mapping directly to Alok Kumar Mishra -->
+                    <a href="https://www.linkedin.com/in/alok-kumar-mishra-09660422a/" target="_blank" rel="noopener noreferrer" class="p-2 bg-slate-50 dark:bg-slate-900 text-slate-400 hover:text-brand-600 hover:bg-brand-50 dark:hover:bg-indigo-950/40 rounded-xl transition-all duration-300" aria-label="Alok Kumar Mishra LinkedIn Profile">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="#" class="p-2 bg-slate-50 dark:bg-slate-900 text-slate-400 hover:text-brand-600 hover:bg-brand-50 dark:hover:bg-indigo-950/40 rounded-xl transition-all duration-300" aria-label="Prodesk IT on GitHub">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-slate-200/50 dark:border-slate-800/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="text-left">
+                    <p class="text-xs text-slate-400 dark:text-slate-500">
+                        &copy; 2026 Prodesk IT Company. All engineering and distribution rights reserved.
+                    </p>
+                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-1">
+                        Developed by <span class="font-semibold text-slate-500 dark:text-slate-400">Alok Kumar Mishra</span> (<a href="mailto:alokmishra201900@gmail.com" class="hover:underline text-brand-600 dark:text-brand-400">alokmishra201900@gmail.com</a>)
+                    </p>
+                </div>
+                <div class="flex items-center space-x-4 text-xs text-slate-400 dark:text-slate-500">
+                    <a href="#" class="hover:underline">Privacy Policy</a>
+                    <span>&middot;</span>
+                    <a href="#" class="hover:underline">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lead Submission Success Modal System -->
+    <div id="success-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-md w-full rounded-3xl p-8 shadow-2xl flex flex-col items-center text-center transform scale-95 transition-transform duration-300" id="success-modal-content">
+            <div class="w-14 h-14 bg-emerald-50 dark:bg-emerald-950/40 rounded-full flex items-center justify-center text-emerald-500 mb-5">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-slate-900 dark:text-white mb-2">Proposal Received!</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-300 leading-relaxed mb-6">
+                Your specifications have bypassed traditional queues and landed directly with our Senior Engineering Leads. We will follow up shortly.
+            </p>
+            <button onclick="closeSuccessModal()" class="w-full py-3 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 text-sm font-bold rounded-xl transition-all">
+                Acknowledge & Continue
+            </button>
+        </div>
+    </div>
+
+    <!-- Active Lead Acquisition Dialog Modal -->
+    <div id="lead-modal" class="hidden fixed inset-0 z-[99] flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-lg w-full rounded-3xl p-8 shadow-2xl relative transform scale-95 transition-transform duration-300" id="lead-modal-content">
+            <button onclick="closeLeadModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 dark:hover:text-white" aria-label="Close dialog">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brand-600 tracking-wider uppercase">Direct Access Channel</span>
+                <h3 id="lead-modal-title" class="text-2xl font-bold text-slate-900 dark:text-white mt-1">Accelerate Your Core Analytics</h3>
+            </div>
+            <form id="lead-modal-form" onsubmit="handleLeadModalSubmission(event)" class="space-y-4">
+                <div>
+                    <label for="modal-name" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Full Name</label>
+                    <input type="text" id="modal-name" required class="w-full px-4 py-2.5 text-sm bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white dark:focus:bg-slate-900 text-slate-900 dark:text-white transition-all">
+                </div>
+                <div>
+                    <label for="modal-email" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Work Email</label>
+                    <input type="email" id="modal-email" required class="w-full px-4 py-2.5 text-sm bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white dark:focus:bg-slate-900 text-slate-900 dark:text-white transition-all">
+                </div>
+                <div>
+                    <label for="modal-service" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Focus Initiative</label>
+                    <select id="modal-service" class="w-full px-4 py-2.5 text-sm bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white dark:focus:bg-slate-900 text-slate-900 dark:text-white transition-all">
+                        <option>Search Engine Optimization (SEO)</option>
+                        <option>Performant Web Application Engine</option>
+                        <option>Integrated Digital Marketing Campaign</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full mt-4 py-3.5 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 active:scale-95 rounded-xl transition-all">
+                    Initiate Connection Proposal
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Core Variables & DOM Accessors
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleBtnMobile = document.getElementById('theme-toggle-mobile');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
+        const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
+        
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        const successModal = document.getElementById('success-modal');
+        const successModalContent = document.getElementById('success-modal-content');
+        const leadModal = document.getElementById('lead-modal');
+        const leadModalContent = document.getElementById('lead-modal-content');
+
+        // Sandbox-safe Storage Checker
+        let isStorageAccessAllowed = true;
+        try {
+            const testKey = '__storage_test__';
+            window.localStorage.setItem(testKey, testKey);
+            window.localStorage.removeItem(testKey);
+        } catch (e) {
+            isStorageAccessAllowed = false;
+        }
+
+        // Safe Theme Persistence Get/Set
+        function getPersistedTheme() {
+            if (isStorageAccessAllowed) {
+                return localStorage.getItem('color-theme');
+            }
+            return window.__inMemoryTheme || null;
+        }
+
+        function setPersistedTheme(theme) {
+            if (isStorageAccessAllowed) {
+                localStorage.setItem('color-theme', theme);
+            } else {
+                window.__inMemoryTheme = theme;
+            }
+        }
+
+        function initTheme() {
+            const savedTheme = getPersistedTheme();
+            const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && isSystemDark)) {
+                document.documentElement.classList.add('dark');
+                themeToggleLightIcon.classList.remove('hidden');
+                themeToggleLightIconMobile.classList.remove('hidden');
+                themeToggleDarkIcon.classList.add('hidden');
+                themeToggleDarkIconMobile.classList.add('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleDarkIconMobile.classList.remove('hidden');
+                themeToggleLightIcon.classList.add('hidden');
+                themeToggleLightIconMobile.classList.add('hidden');
+            }
+        }
+
+        function toggleTheme() {
+            const isCurrentDark = document.documentElement.classList.contains('dark');
+            
+            if (isCurrentDark) {
+                document.documentElement.classList.remove('dark');
+                setPersistedTheme('light');
+                themeToggleLightIcon.classList.add('hidden');
+                themeToggleLightIconMobile.classList.add('hidden');
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleDarkIconMobile.classList.remove('hidden');
+            } else {
+                document.documentElement.classList.add('dark');
+                setPersistedTheme('dark');
+                themeToggleDarkIcon.classList.add('hidden');
+                themeToggleDarkIconMobile.classList.add('hidden');
+                themeToggleLightIcon.classList.remove('hidden');
+                themeToggleLightIconMobile.classList.remove('hidden');
+            }
+        }
+
+        // Event Hooking for Theme Actions
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleBtnMobile.addEventListener('click', toggleTheme);
+
+        // Mobile Navigation Hamburger Interface Controller
+        function toggleMobileMenu() {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            } else {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.setAttribute('aria-hidden', 'false');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                hamburgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Close Mobile Menu on Nav link clicks
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Header Scrolling Dynamic UI Mod (Phase 2 Sticky Visual Enhancements)
+        const headerElement = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                headerElement.classList.add('py-1', 'shadow-md', 'bg-white/90', 'dark:bg-slate-950/90');
+                headerElement.classList.remove('bg-white/70', 'dark:bg-slate-950/70', 'shadow-sm');
+            } else {
+                headerElement.classList.remove('py-1', 'shadow-md', 'bg-white/90', 'dark:bg-slate-950/90');
+                headerElement.classList.add('bg-white/70', 'dark:bg-slate-950/70', 'shadow-sm');
+            }
+        });
+
+        function openLeadModal() {
+            leadModal.classList.remove('hidden');
+            setTimeout(() => {
+                leadModalContent.classList.remove('scale-95');
+                leadModalContent.classList.add('scale-100');
+            }, 10);
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeLeadModal() {
+            leadModalContent.classList.remove('scale-100');
+            leadModalContent.classList.add('scale-95');
+            setTimeout(() => {
+                leadModal.classList.add('hidden');
+            }, 150);
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function openSuccessModal() {
+            successModal.classList.remove('hidden');
+            setTimeout(() => {
+                successModalContent.classList.remove('scale-95');
+                successModalContent.classList.add('scale-100');
+            }, 10);
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeSuccessModal() {
+            successModalContent.classList.remove('scale-100');
+            successModalContent.classList.add('scale-95');
+            setTimeout(() => {
+                successModal.classList.add('hidden');
+            }, 150);
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function handleFormSubmission(event) {
+            event.preventDefault();
+            openSuccessModal();
+            document.getElementById('contact-form').reset();
+        }
+
+        function handleLeadModalSubmission(event) {
+            event.preventDefault();
+            closeLeadModal();
+            setTimeout(() => {
+                openSuccessModal();
+                document.getElementById('lead-modal-form').reset();
+            }, 200);
+        }
+
+        // Modal Close via Overlay Event Listening
+        successModal.addEventListener('click', (e) => {
+            if (e.target === successModal) closeSuccessModal();
+        });
+        leadModal.addEventListener('click', (e) => {
+            if (e.target === leadModal) closeLeadModal();
+        });
+
+        // Initialize Module Engine
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+        });
+    </script>
+</body>
+</html>
